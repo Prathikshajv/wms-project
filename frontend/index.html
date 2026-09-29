@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WMS - Warehouse Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>WMS</h2>
+
+        <p class="sidebar-subtitle">
+            Warehouse Management
+        </p>
+
+        <nav>
+
+            <button onclick="showSection('dashboard')">
+                Dashboard
+            </button>
+
+            <button onclick="showSection('products')">
+                Products
+            </button>
+
+            <button onclick="showSection('locations')">
+                Storage Locations
+            </button>
+
+            <button onclick="showSection('inbound')">
+                Inbound
+            </button>
+
+            <button onclick="showSection('outbound')">
+                Outbound
+            </button>
+
+            <button onclick="showSection('stock')">
+                Stock
+            </button>
+
+            <button onclick="showSection('activity')">
+                Activity History
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <!-- Dashboard -->
+
+        <section id="dashboard" class="section">
+
+            <h1>Dashboard</h1>
+
+            <p class="subtitle">
+                Warehouse overview
+            </p>
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <h3>Total Products</h3>
+                    <p id="totalProducts">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Total Stock</h3>
+                    <p id="totalStock">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Inbound Orders</h3>
+                    <p id="totalInbound">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Outbound Orders</h3>
+                    <p id="totalOutbound">0</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Products -->
+
+        <section id="products" class="section hidden">
+
+            <h1>Products</h1>
+
+            <p class="subtitle">
+                Manage warehouse products
+            </p>
+
+
+            <!-- Add Product -->
+
+            <div class="card">
+
+                <h2>Add Product</h2>
+
+                <form id="productForm">
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Product Name"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="productSku"
+                        placeholder="SKU Code"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="productQuantity"
+                        placeholder="Quantity"
+                        min="0"
+                        required
+                    >
+
+                    <button type="submit">
+                        Add Product
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="card">
+
+                <h2>Search Products</h2>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by product name or SKU"
+                >
+
+            </div>
+
+
+            <!-- Product Table -->
+
+            <div class="card">
+
+                <h2>Product List</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="productTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Storage Locations -->
+
+        <section id="locations" class="section hidden">
+
+    <h1>Storage Locations</h1>
+
+    <p class="subtitle">
+        Manage warehouse storage locations
+    </p>
+
+
+    <!-- Add Location -->
+
+    <div class="card">
+
+        <h2>Add Storage Location</h2>
+
+        <form id="locationForm">
+
+            <input
+                type="text"
+                id="locationCode"
+                placeholder="Location Code e.g. A-01-01"
+                required
+            >
+
+            <input
+                type="text"
+                id="locationDescription"
+                placeholder="Description"
+            >
+
+            <button type="submit">
+                Add Location
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Location List -->
+
+    <div class="card">
+
+        <h2>Location List</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Location Code</th>
+                    <th>Description</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="locationTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- Inbound -->
+
+        <section id="inbound" class="section hidden">
+
+    <h1>Inbound</h1>
+
+    <p class="subtitle">
+        Receive products into the warehouse
+    </p>
+
+
+    <!-- Receive Stock -->
+
+    <div class="card">
+
+        <h2>Receive Stock</h2>
+
+        <form id="inboundForm">
+
+            <select id="inboundProduct" required>
+
+                <option value="">
+                    Select Product
+                </option>
+
+            </select>
+
+
+            <input
+                type="number"
+                id="inboundQuantity"
+                placeholder="Quantity"
+                min="1"
+                required
+            >
+
+
+            <button type="submit">
+                Receive Stock
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Inbound History -->
+
+    <div class="card">
+
+        <h2>Inbound History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>SKU</th>
+                    <th>Quantity</th>
+                    <th>Received Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="inboundTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- Outbound -->
+
+        <section id="outbound" class="section hidden">
+
+    <h1>Outbound</h1>
+
+    <p class="subtitle">
+        Dispatch products from the warehouse
+    </p>
+
+
+    <!-- Create Outbound Order -->
+
+    <div class="card">
+
+        <h2>Create Outbound Order</h2>
+
+        <form id="outboundForm">
+
+            <select id="outboundProduct" required>
+
+                <option value="">
+                    Select Product
+                </option>
+
+            </select>
+
+
+            <input
+                type="number"
+                id="outboundQuantity"
+                placeholder="Quantity"
+                min="1"
+                required
+            >
+
+
+            <button type="submit">
+                Dispatch Stock
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Outbound History -->
+
+    <div class="card">
+
+        <h2>Outbound History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>SKU</th>
+                    <th>Quantity</th>
+                    <th>Order Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="outboundTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- Stock -->
+
+        <section id="stock" class="section hidden">
+
+    <h1>Stock</h1>
+
+    <p class="subtitle">
+        Current warehouse inventory
+    </p>
+
+
+    <div class="card">
+
+        <h2>Current Stock</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>SKU</th>
+                    <th>Available Quantity</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="stockTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- Activity -->
+
+        <section id="activity" class="section hidden">
+
+    <h1>Activity History</h1>
+
+    <p class="subtitle">
+        Recent warehouse activities
+    </p>
+
+    <div class="card">
+
+        <h2>Recent Activities</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Action</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="activityTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
