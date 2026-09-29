@@ -253,3 +253,14 @@ Possible future improvements include:
 
 Developed as part of the XP Robotics assignment to demonstrate a basic Warehouse Management System using a web-based architecture.
 
+
+## WMS and Robotics Integration
+
+This project focuses on the WMS layer of warehouse operations.
+
+The WMS manages products, inventory, inbound operations, outbound operations, storage locations, and warehouse activity.
+
+In a larger warehouse automation system, the WMS could communicate with a WCS through APIs. The WCS could then coordinate AMRs, AGVs, conveyors, and other warehouse automation equipment.
+
+This project is designed as a basic foundation for that type of integration.
+
