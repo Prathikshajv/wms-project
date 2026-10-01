@@ -2,6 +2,10 @@
 
 A simple web-based Warehouse Management System developed as part of the XP Robotics assignment.
 
+## Demo Video
+
+[Watch the WMS Demo Video](./wms-demo-video.mp4)
+
 ## Project Overview
 
 A Warehouse Management System (WMS) is used to manage and track products, inventory, storage locations, inbound stock, and outbound orders in a warehouse.
