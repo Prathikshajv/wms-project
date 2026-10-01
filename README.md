@@ -12,42 +12,45 @@ A Warehouse Management System (WMS) is used to manage and track products, invent
 
 This project provides a basic WMS interface where users can manage products, track stock movement, manage storage locations, and view warehouse activity.
 
-
 ## Features
 
-- Dashboard with inventory summary
-- Add new products
-- Edit product details
-- Delete products
-- Search products by name or SKU
-- Manage storage locations
-- Record inbound stock
-- Record outbound orders
-- Automatic stock updates
-- Prevent outbound orders when stock is insufficient
-- View current stock
-- Activity history
-- REST API based backend
+* Dashboard with inventory summary
+* Add new products
+* Edit product details
+* Delete products
+* Search products by name or SKU
+* Manage storage locations
+* Record inbound stock
+* Record outbound orders
+* Automatic stock updates
+* Prevent outbound orders when stock is insufficient
+* View current stock
+* Activity history
+* REST API based backend
 
 ## Tech Stack
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+
+* HTML
+* CSS
+* JavaScript
 
 ### Backend
-- Python
-- Flask
-- Flask-CORS
+
+* Python
+* Flask
+* Flask-CORS
 
 ### Database
-- SQLite
+
+* SQLite
 
 ### Tools
-- Visual Studio Code
-- Git
-- GitHub
+
+* Visual Studio Code
+* Git
+* GitHub
 
 ## System Architecture
 
@@ -64,6 +67,7 @@ Flask Backend
   |
   v
 SQLite Database
+```
 
 ## Warehouse Workflow
 
@@ -80,8 +84,11 @@ Product Stock Increases
    |
    v
 Activity History Updated
+```
 
-### Outbound Workflow 
+### Outbound Workflow
+
+```text
 Customer Order
    |
    v
@@ -95,6 +102,7 @@ Product Stock Decreases
    |
    v
 Activity History Updated
+```
 
 ## Project Structure
 
@@ -114,6 +122,7 @@ wms-project/
 ├── README.md
 ├── requirements.txt
 └── venv/
+```
 
 ## How to Run the Project
 
@@ -175,7 +184,6 @@ Open the `frontend` folder in VS Code and open `index.html` using Live Server.
 
 The WMS interface will open in the browser.
 
-
 ## Database
 
 The project uses SQLite for storing:
@@ -206,7 +214,6 @@ The database file is created automatically when the Flask application starts.
 | GET    | `/api/activity`        | Get activity history     |
 | GET    | `/api/dashboard`       | Get dashboard statistics |
 
-
 ## Stock Management Logic
 
 When inbound stock is received:
@@ -222,21 +229,6 @@ Current Stock - Outbound Quantity
 ```
 
 The system also checks whether enough stock is available before allowing an outbound order.
-
-## Demo Video
-
-[Watch the WMS Demo Video](./wms-demo-video.mp4)
-```
-
-The video will demonstrate:
-
-* Dashboard
-* Product management
-* Storage locations
-* Inbound stock
-* Outbound orders
-* Stock updates
-* Activity history
 
 ## Future Improvements
 
@@ -255,7 +247,6 @@ Possible future improvements include:
 
 Developed as part of the XP Robotics assignment to demonstrate a basic Warehouse Management System using a web-based architecture.
 
-
 ## WMS and Robotics Integration
 
 This project focuses on the WMS layer of warehouse operations.
@@ -265,4 +256,3 @@ The WMS manages products, inventory, inbound operations, outbound operations, st
 In a larger warehouse automation system, the WMS could communicate with a WCS through APIs. The WCS could then coordinate AMRs, AGVs, conveyors, and other warehouse automation equipment.
 
 This project is designed as a basic foundation for that type of integration.
-
