@@ -116,7 +116,7 @@ wms-project/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-github-repository-url>
+git clone https://github.com/Prathikshajv/wms-project.git
 ```
 
 ### 2. Open the project
@@ -171,6 +171,7 @@ Open the `frontend` folder in VS Code and open `index.html` using Live Server.
 
 The WMS interface will open in the browser.
 
+
 ## Database
 
 The project uses SQLite for storing:
@@ -220,10 +221,7 @@ The system also checks whether enough stock is available before allowing an outb
 
 ## Demo Video
 
-A 3–5 minute demo video will be added here:
-
-```text
-[Demo Video Link]
+[Watch the WMS Demo Video](./wms-demo-video.mp4)
 ```
 
 The video will demonstrate:
